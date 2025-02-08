@@ -25,9 +25,6 @@ class DrawingApp(tk.Tk):
         self.clear_button = tk.Button(self, text='Clear', command=self.clear_canvas)
         self.clear_button.pack()
         
-        self.save_button = tk.Button(self, text='Predict', command=self.predict)
-        self.save_button.pack()
-        
         self.canvas.bind('<B1-Motion>', self.draw)
         
         self.image = Image.new('RGB', (self.canvas_size, self.canvas_size), 'white')
@@ -66,6 +63,6 @@ class DrawingApp(tk.Tk):
         
 
 if __name__ == '__main__':
-    model = pickle.load(open('model.pk', 'rb'))
+    model = pickle.load(open('model_2.pk', 'rb'))
     App = DrawingApp(model=model)
     App.mainloop()
